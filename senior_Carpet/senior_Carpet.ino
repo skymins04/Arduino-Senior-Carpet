@@ -30,8 +30,6 @@ boolean MSGFlag = true;
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 SoftwareSerial bt(2, 3); // RX, TX
 
-void(*resetFunc) (void) = 0;
-
 void printLCD(uint8_t col, uint8_t row, String str) {
 	lcd.setCursor(col, row);
 	lcd.print(str);
@@ -135,9 +133,9 @@ void loop() {
 					MSGFlag = true;
 				}
 				if (detected != 0) {
-					temp = (millis() - elapsedTime) / 10000;
-					if (temp < 0) temp * -1;
+					temp = (millis() - elapsedTime) / 10000; if (temp < 0) temp * -1;
 					if (DEBUG == 1) { Serial.println(String(millis()) + " - " + String(elapsedTime) + " / " + String(detected) + " = " + String(temp)); }
+					
 					if (temp <= detected) status = 1;
 					else if (temp-1 <= detected) status = 2;
 					else status = 3;

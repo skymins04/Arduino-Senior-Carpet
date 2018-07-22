@@ -85,7 +85,7 @@ void loop() {
 					digitalWrite(R, HIGH);
 					digitalWrite(G, LOW);
 					digitalWrite(B, LOW);
-					bt.println("============================\nThe activity of the elderly is too little.\nVisit your elderly house.\n============================\n");
+					bt.println("=| Warning message |====================\nThe activity of the elderly is too little.\nYou should visit elder\'s house.\n========================================\n");
 					while (!(analogRead(L_FSR) > 300) || (analogRead(R_FSR) > 300)) {
 						if (tempFlag) {
 							tone(BZ, G5);
@@ -111,7 +111,7 @@ void loop() {
 					while ((analogRead(L_FSR) > 300) || (analogRead(R_FSR) > 300)) {
 						if (millis() - tempTime > 10000) {
 							if (MSGFlag) {
-								bt.println("============================\nIt has been detected for too long.\nVisit your elderly house.\n============================\n");
+								bt.println("=| Warning message |====================\nIt has been detected for too long.\nYou should visit elder\'s house.\n========================================\n");
 								digitalWrite(R, HIGH);
 								digitalWrite(G, LOW);
 								digitalWrite(B, LOW);

@@ -7,7 +7,6 @@
 #include <LiquidCrystal_I2C.h>
 #include <SoftwareSerial.h>
 #include "Notes.h"
-#include "Strings.h"
 
 uint8_t DEBUG = 0;
 
